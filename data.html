@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="style.css" rel="stylesheet">
-  <title>Data Protection Agreement</title>
+  <title>Yagi POS Cart Helper - Data Protection Agreement</title>
   <!-- Include CDN JavaScript -->
   <!-- <script src="https://unpkg.com/tailwindcss-jit-cdn"></script> -->
 </head>
@@ -46,9 +46,9 @@
           </span>
         </h1>
         <p class="mt-8 text-xl text-gray-500 leading-8">
-          DraftHelper Data Protection Agreement
+          Yagi POS Cart Helper -  Data Protection Agreement
           <br><br>
-          <strong>DraftHelper</strong> "the App” provides draft order editing service (including checkout link generation, applying discount, rearranging line items and editing line item properties) "the Service" to merchants who use Shopify to power their stores. This Data Protection Agreement describes what data is collected, used, and stored in database when you install or use the App in connection with your Shopify-supported store.
+          <strong>Yagi POS Cart Helper</strong> "the App” provides cart storing and retrieval, cart conversion to / from draft order service "the Service" to merchants who use Shopify to power their stores. This Data Protection Agreement describes what data is collected, used, and stored in database when you install or use the App in connection with your Shopify-supported store.
         </p>
         <article class="mt-8 text-xl text-gray-500 leading-8">
           <h3 class="text-2xl font-semibold">Personal Information the App Collects</h3>
@@ -56,34 +56,32 @@
           <br><br>
           Your shop name and shop contact email, this is only used for support and emergency contact purpose.
           <br><br>
-          Your shop's location ID and name, this is only used for when you use the deduct inventory feature, which the app will deduct inventory from the selected location.
+          Your shop's location ID and name, this is only used for identifying the location of the POS which the cart is saved.
           <br><br>
-          Draft Orders data, including line items and customers details, this is only used for the app to function.
+          Draft Orders data, including line items and customer ID, this is only used for the app to function, when you convert draft order to cart, or vice versa.<br><br>
+          Customers data which is limited to Customer ID and name, this is only used for display purpose, to identify which customer the carts belong to.
           <br><br>
 
           <h3 class="text-2xl font-semibold">Draft Order Information the App Collects</h3>
 
-          For all of the app functions, the app collects information from the draft order, including the line item quantity, line item properties, product ID, product name, product image, product price, variant ID, variant name, variant SKU , inventory item ID, draft order ID, draft order notes and draft order tags.
+          For certain app functions, the app collects information from the draft order, including the line item quantity, line item properties, product ID, product name, product image, product price, variant ID, variant name, variant SKU , inventory item ID, draft order ID, customer ID, draft order notes and draft order tags.
           <br><br>
-          From the information above, only the product ID, variant ID, inventory item ID and draft order ID are stored in the app database, for future identification and access purpose, no other data from the draft order is stored in the app database.
-          <br><br>
-
-          <h3 class="text-2xl font-semibold">Checkout Information the App Collects</h3>
-          For the "Generate discountable checkout link" / "Checkout link" function, the app collects information from the generated checkout, including the checkout URL and the checkout token. The checkout URL and checkout token is stored in the database, so that the app can display the URL for merchant to see and send to customer to proceed to checkout.
+          From the information above, only the product ID, variant ID, customer ID (if there is customer attached to the draft order), and draft order ID are stored in the app database, for future identification and access purpose, no other data from the draft order is stored in the app database.
           <br><br>
 
           <h3 class="text-2xl font-semibold">Customer Information the App Collects</h3>
-          For the "Generate discountable checkout link" / "Checkout link" function, in addition to the draft order information mentioned in the previous section, the app also collects the draft order's customer information, including customer name, customer email, customer shipping address and customer billing address.
+          When you use the app functionality to save cart on POS, or convert draft order to cart, the app collects the customer information (if there is customer attached to the cart or draft order), including customer ID and customer name.
           <br><br>
-          These customer information is needed to generate a checkout, which the checkout will then be populated with the customer name, email, phone number, shipping address and billing address, so the customer will not need to type them again when they access the checkout link generated.
+          These customer information is used to display on the carts list when merchant view the saved carts, to easily which cart belongs to which customers.
           <br><br>
-          These customer information (name, email, phone number, shipping address and billing address) is never stored in the app database, the app will request these information from Shopify every time a checkout link is generated, and they will be discarded once the checkout link is generated, these information are only kept in ephemeral Random Access Memory (RAM) during the generation of checkout link.
+          Only the numerical identifier of the customer (customer ID) is saved in the database, other customer information (customer's name) is never stored in the app database, the app will request these information from Shopify every time merchant view the saved carts, and they will be discarded once the list of saved carts is generated and displayed, these information are only kept in ephemeral Random Access Memory (RAM) during the generation of saved cart(s).
           <br><br>
 
           <h3 class="text-2xl font-semibold">Data Retention Period</h3>
-          For customer data (customer name, email, phone number, shipping address and biling address), the data is discarded immediately right after the checkout link is generated, this data is never stored in the database.
+          For personal identifiable customer data (customer name), the data is discarded immediately right after the saved cart list is generated, this data is never stored in the database.
+          As for the customer ID (unique numerical identifier), the data is stored in database until the cart is deleted, or retrieved on the POS to checkout.
           <br><br>
-          For the inventory deduction data (location ID, variant ID, inventory item ID, quantity), the data is stored in database until the draft (that is used for inventory deduction) is paid or completed, or until the merchant manually restore the deducted inventory using the app. ie. these data will be removed from the database when the draft order is completed, or when the merchant manually restore the deducted inventory using the app.
+          For the draft order data, the data is stored in database until the cart related to the draft order is deleted, or is used to checkout.
           <br><br>
           For the store data (store name and store contact email), the data is stored in database until the user uninstalls the app.
           <br><br>
@@ -91,12 +89,12 @@
           <br><br>
 
           <h3 class="text-2xl font-semibold">Data Security</h3>
-          We use HTTPS / TLS 1.3 (AES_128_GCM_SHA256) to encrypt the data in transit for the app, no customer data is ever stored in the database. The database only store the following data : your shop name, your shop contact email, you shop location IDs, product ID, variant ID, inventory item ID, draft order ID, checkout ID and quantity of line items.
+          We use HTTPS / TLS 1.3 (AES_128_GCM_SHA256) to encrypt the data in transit for the app, no personally identifiable customer data is ever stored in the database. The database only store the following data : your shop name, your shop contact email, you shop location IDs, product ID, variant ID, inventory item ID, draft order ID, quantity of line items and customer ID.
           <br><br>
           <h3 class="text-2xl font-semibold">Changes</h3>
           We may update this data protection agreement from time to time in order to reflect, for example, changes to our practices or for other operational, legal or regulatory reasons.
           <br><br>
-          <h3 class="text-2xl font-semibold">Contact Us</h3> For more information about our privacy practices, if you have questions, or if you would like to make a complaint, please contact us by e-mail at <strong>axel@draftorder.app</strong> or by mail using the details provided below:
+          <h3 class="text-2xl font-semibold">Contact Us</h3> For more information about our privacy practices, if you have questions, or if you would like to make a complaint, please contact us by e-mail at <strong>axel@yagisoftware.com</strong> or by mail using the details provided below:
           <br><br>
           Level 30, No.1, Jalan Pinang, 50450 Kuala Lumpur
         </article>
